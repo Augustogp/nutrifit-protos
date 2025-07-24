@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.nutrifit.useraccount.v1";
+
+service UserAccountService {
+  rpc CreateUserAccount(CreateUserAccountRequest) returns (UserAccountResponse);
+  rpc GetUserAccountById(GetUserAccountByIdRequest) returns (UserAccountResponse);
+}
+
+message CreateUserAccountRequest {
+  string username = 1;
+  string password = 2;
+  string first_name = 3;
+  string last_name = 4;
+  string email = 5;
+}
+
+message GetUserAccountByIdRequest {
+  string user_id = 1;
+}
+
+message UserAccountResponse {
+  string user_id = 1;
+  string username = 2;
+  string first_name = 3;
+  string last_name = 4;
+  string email = 5;
+}
