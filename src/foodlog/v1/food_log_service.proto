@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.nutrifit.foodlog.v1";
+
+service FoodLogService {
+  rpc GetFoodLogById(GetFoodLogByIdRequest) returns (GrpcFoodLogResponse);
+  rpc GetFoodLogByUserIdAndDate(GetFoodLogByUserIdAndDateRequest) returns (GrpcFoodLogResponse);
+}
+
+message GetFoodLogByIdRequest {
+  string food_log_id = 1;
+}
+
+message GetFoodLogByUserIdAndDateRequest {
+  string user_id = 1;
+  string date = 2; // Format: YYYY-MM-DD
+}
+
+message GrpcFoodLogResponse {
+  string food_log_id = 1;
+  string user_id = 2;
+  string date = 3; // Format: YYYY-MM-DD
+}
