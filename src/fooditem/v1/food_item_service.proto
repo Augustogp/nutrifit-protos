@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package nutrifit.fooditem.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nutrifit.fooditem.v1";
+
+service FoodItemService {
+  rpc GetFoodItemByName(GetFoodItemByNameRequest) returns (GetFoodItemResponse);
+}
+
+message GetFoodItemByNameRequest {
+  string name = 1;
+}
+
+message GetFoodItemResponse {
+  string id = 1;
+  string name = 2;
+  string calories_per_gram = 3;
+  string proteins_per_gram = 4;
+  string carbohydrates_per_gram = 5;
+  string saturated_fats_per_gram = 6;
+  string unsaturated_fats_per_gram = 7;
+  string trans_fats_per_gram = 8;
+}
